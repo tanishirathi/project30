@@ -66,10 +66,10 @@ function setup(){
     //top
     Block16 = new Box (900,155,30,40);
 
-    polygon = Bodies.circle(50,200,20);
-    world.add(world.polygon);
+    polygon = Bodies.circle(50,200,40);
+    World.add(world,polygon);
     
-    
+   rope=new Slingshot(this.polygon,{x:50,y:200}) 
 }
 
 function draw(){
@@ -117,15 +117,15 @@ function draw(){
 }
 
 function mouseDragged (){
-Matter.Body.setPosition(this.ball,{x:mouseX,y:mouseY});
+Matter.Body.setPosition(this.polygon,{x:mouseX,y:mouseY});
 }
 
 function mouseReleased () {
-Slingshot.fly();
+rope.fly();
 }
 
 function keyPressed(){
     if(keyCode === 32){
-      slinfShot.attach(this.polygon);
+     rope.attach(this.polygon);
     }
 }
